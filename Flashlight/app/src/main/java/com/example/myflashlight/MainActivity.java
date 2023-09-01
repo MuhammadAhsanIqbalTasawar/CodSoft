@@ -1,7 +1,6 @@
 package com.example.myflashlight;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
@@ -10,9 +9,6 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.content.ContextCompat;
-
-import com.example.flaglight.R;
 
 public class MainActivity extends AppCompatActivity {
     private boolean isFlashlightOn = false;
