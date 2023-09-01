@@ -1,4 +1,4 @@
-package com.example.flashlight;
+package com.example.myflashlight;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.flaglight", appContext.getPackageName());
+        assertEquals("com.example.myflashlight", appContext.getPackageName());
     }
 }

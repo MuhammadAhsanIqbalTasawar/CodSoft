@@ -1,58 +1,62 @@
-package com.example.flashlight;
+package com.example.myflashlight;
+
 import android.content.Context;
+import android.graphics.Color;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.flaglight.R;
-
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.content.ContextCompat;
 
 public class MainActivity extends AppCompatActivity {
-
-    private ImageButton toggleButton;
     private boolean isFlashlightOn = false;
     private CameraManager cameraManager;
     private String cameraId;
-
+    private ImageView imageView;
+    private Button toggleButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        imageView = findViewById(R.id.imageView);
         toggleButton = findViewById(R.id.toggleButton);
+        AppCompatButton toggleButton = findViewById(R.id.toggleButton);
 
         cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         try {
-            cameraId = cameraManager.getCameraIdList()[0]; // Use the first camera
+            cameraId = cameraManager.getCameraIdList()[0];
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
-
         updateButtonState();
-
-        toggleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toggleFlashlight();
-                updateButtonState();
-            }
+            toggleButton.setTextColor(getResources().getColor(R.color.button_text_color));
+        toggleButton.setOnClickListener(v -> {
+            toggleFlashlight();
+            updateButtonState();
+            updateButtonText();
         });
     }
 
     private void updateButtonState() {
         if (isFlashlightOn) {
-            toggleButton.setImageResource(R.drawable.on);
-            toggleButton.setContentDescription(getString(R.string.turn_off_flashlight));
+            imageView.setImageResource(R.drawable.on);
         } else {
-            toggleButton.setImageResource(R.drawable.off);
-            toggleButton.setContentDescription(getString(R.string.turn_on_flashlight));
+            imageView.setImageResource(R.drawable.off);
+          
         }
     }
 
+    private void updateButtonText() {
+        if (isFlashlightOn) {
+            toggleButton.setText(R.string.on); // Set text to "On"
+        } else {
+            toggleButton.setText(R.string.off2); // Set text to "Off"
+        }
+    }
     private void toggleFlashlight() {
         try {
             if (isFlashlightOn) {
@@ -66,4 +70,5 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
 }

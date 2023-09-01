@@ -13,5 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FlagLight"
+rootProject.name = "My Flash light"
 include(":app")
+ 
