@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.content.ContextCompat;
 
+import com.example.flaglight.R;
+
 public class MainActivity extends AppCompatActivity {
     private boolean isFlashlightOn = false;
     private CameraManager cameraManager;

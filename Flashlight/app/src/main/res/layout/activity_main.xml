@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="235dp"
@@ -21,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:backgroundTint="@color/purple_500"
+        android:backgroundTint="#FFC107"
         android:text="@string/off2"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
